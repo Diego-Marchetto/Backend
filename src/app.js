@@ -1,8 +1,12 @@
 import express from "express";
 import productos from "./routes/productos.router.js";
 import rCart from "./routes/cart.router.js";
+import viewsR from "./routes/views.router.js";
 import ProductManager from "./productManager.js";
 import cartManager from "./cartManager.js";
+import handlebars from "express-handlebars";
+import __dirname from "./utils.js"
+import {Server} from "socket.io";
 
 const cart = new cartManager();
 const product = new ProductManager();
@@ -24,16 +28,24 @@ cart.addProdCart(1, 1); //comandos que use para testear, se puede hacer desde Po
 console.log(product.getProducts());
 
 const app = express();
-    app.get('/',(req, res)=>{
-    res.send("Bienvenidos a DettoStore")
-})
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
+app.use('/', viewsR)
 app.use('/api/products', productos)
 app.use('/api/cart', rCart)
+app.engine('handlebars',  handlebars.engine());
+app.set('views', __dirname + '/views');
+app.set('view engine', 'handlebars')
+app.use(express.static(__dirname + '/public'));
 
-app.listen(8080,()=>console.log("Servidor en puerto 8080"))
+const httpServer = app.listen(8080,()=>console.log("Servidor en puerto 8080"))
+const socketServer = new Server(httpServer)
+
+socketServer.on("connection", (socket) =>{
+    console.log("Un cliente se ha conectado.")
+});
+
 
 export default product;
 
