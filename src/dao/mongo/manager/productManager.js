@@ -6,6 +6,7 @@ class productManager {
             const opts = {
                 page: req.query.page || 1,
                 limit: req.query.limit || 2,
+                sort: req.query.sort || null,
                 lean: true,
             };
             const dats = await productModel.paginate({}, opts);
