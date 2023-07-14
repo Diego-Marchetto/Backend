@@ -1,0 +1,27 @@
+<h3>Lista de productos</h3>
+<div>
+    <p>
+        {{#each products}}
+        <div class="contProduct">
+            <p>Name: {{name}}</h2>
+            <p>Description: {{description}}</p>
+            <p>Price: {{price}}</p>
+            <p>Category: {{category}}</p>
+            <img>Image: {{thumbnail}}</img>
+            <p>stock: {{stock}}</p>
+            <a href="product/{{_id}}"> Ir al producto</a>
+        </div>
+        {{/each}}
+    </p>
+</div>
+
+{{#if hasPrevPage}}
+<a href="/products?page={{prevPage}}"><button>Preview</button></a>
+{{/if}}
+
+{{page}}
+
+{{#if hasNextPage}}
+<a href="/products?page={{nextPage}}"><button>Next</button></a>
+{{/if}}
+

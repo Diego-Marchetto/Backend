@@ -1,5 +1,17 @@
-.contItem{
-    background-color: red;
-    color: black;
-    width: 200px;
+.contProduct{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blue;
+    border-radius: 2px;
+    color: white;
+    margin: 10px;
+    width: 400px;
+}
+
+a{
+    background-color: black;
+    border-radius: 2px;
+    color: white;
+    margin: 5px;
 }

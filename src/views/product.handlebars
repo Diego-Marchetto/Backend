@@ -1,0 +1,17 @@
+<div class="contProduct">
+    <p>
+        {{#if product}}
+        <div>
+            <p>Name: {{product.name}}</h2>
+            <p>Description: {{product.description}}</p>
+            <p>Price: {{product.price}}</p>
+            <p>Category: {{product.category}}</p>
+            <img>Image: {{product.thumbnail}}</img>
+            <p>stock: {{product.stock}}</p>
+            <p>ID: {{product._id}}</p>
+        </div>
+        {{/if}}
+    </p>
+    <a href="/products"> Ir a productos</a>
+    <a href="/carts"> Ir a carrito</a>
+</div>
