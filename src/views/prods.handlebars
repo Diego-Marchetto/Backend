@@ -2,6 +2,16 @@
 <a href="products?sort=asc">Precio ascendente</a>
 
 <h3>Lista de productos</h3>
+
+  <nav>
+    <ul>
+        <h4>Filtrar</h4>
+      <li><a href="products?page={{page}}">Todas</a></li>
+      <li><a href="products?page={{page}}?category=Smartphone">Smartphone</a></li>
+      <li><a href="products?page={{page}}?category=TV">Televisores</a></li>
+    </ul>
+  </nav>
+
 <div>
     <p>
         {{#each products}}
@@ -27,4 +37,5 @@
 {{#if hasNextPage}}
 <a href="/products?page={{nextPage}}"><button>Next</button></a>
 {{/if}}
+
 

@@ -5,11 +5,12 @@ class productManager {
         try {
             const opts = {
                 page: req.query.page || 1,
-                limit: req.query.limit || 2,
+                limit: req.query.limit || 10,
                 lean: true,
             };
             const sort = req.query.sort || null;
-            const category = req.query.category || null;
+            const category = req.query.category;
+            let categoryObj = category ? { name: category } : {};
 
             if (sort === "asc") {
                 opts.sort = { price: 1 };
@@ -18,13 +19,14 @@ class productManager {
                 opts.sort = { price: -1 };
             }    
 
-            const dats = await productModel.paginate({}, opts);
+            const dats = await productModel.paginate(categoryObj, opts);
             const products = dats.docs;
             const hasPrevPage = dats.hasPrevPage;
             const hasNextPage = dats.hasNextPage; 
             const prevPage = dats.prevPage;
             const nextPage = dats.nextPage;
-            return { products, hasNextPage, hasPrevPage, nextPage, prevPage };
+            const page = dats.page;
+            return { products, hasNextPage, hasPrevPage, nextPage, prevPage, page };
         } catch (err) {
             throw new Error(err);
         }

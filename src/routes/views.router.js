@@ -23,14 +23,15 @@ viewsR.get('/carts', async (req, res) => {
 });
 
 viewsR.get('/products', async (req, res) => {
-    const { products, hasNextPage, hasPrevPage, nextPage, prevPage } = await prodManager.getProducts(req, res, req.query);
+    const { products, hasNextPage, hasPrevPage, nextPage, prevPage, page} = await prodManager.getProducts(req, res, req.query);
     res.render('prods', { 
-        style: "styles.css", 
+        style: "styles.css",
         products, 
         hasNextPage, 
         hasPrevPage, 
         nextPage, 
         prevPage,
+        page,
     });
 });
 

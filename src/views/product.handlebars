@@ -9,9 +9,13 @@
             <img>Image: {{product.thumbnail}}</img>
             <p>stock: {{product.stock}}</p>
             <p>ID: {{product._id}}</p>
+            <button class="addProductCart" data-product-id={{product._id}} id="addProductCart">Agregar al
+                carrito</button>
         </div>
         {{/if}}
     </p>
     <a href="/products"> Ir a productos</a>
     <a href="/carts"> Ir a carrito</a>
 </div>
+
+<script type="module" src="/js/index.js"></script>
