@@ -23,10 +23,15 @@ viewsR.get('/carts', async (req, res) => {
 });
 
 viewsR.get('/products', async (req, res) => {
+    let { first_name, last_name, role, cid } = req.session.user;
     const { products, hasNextPage, hasPrevPage, nextPage, prevPage, page} = await prodManager.getProducts(req, res, req.query);
     res.render('prods', { 
         style: "styles.css",
-        products, 
+        first_name,
+        last_name,
+        role,
+        cid,
+        products,
         hasNextPage, 
         hasPrevPage, 
         nextPage, 
@@ -36,10 +41,12 @@ viewsR.get('/products', async (req, res) => {
 });
 
 viewsR.get('/product/:id', async (req, res) => {
+    let { cid } = req.session.user;
     const product = await prodManager.getOneProduct(req.params.id);
     res.render('product', { 
         style: "styles.css", 
         product,
+        cid,
     });
 });
 

@@ -1,5 +1,6 @@
-<a href="products?sort=desc">Precio descendente</a>
-<a href="products?sort=asc">Precio ascendente</a>
+<h3>Bienvenido {{first_name}} {{last_name}}, estos son nuestros productos</h3>
+<a href="/profile"><button>Ir a mi perfil</button></a>
+<a href="/cart/{{cid}}"><button>Mi carrito</button></a>
 
 <h3>Lista de productos</h3>
 
@@ -9,6 +10,8 @@
       <li><a href="products?page={{page}}">Todas</a></li>
       <li><a href="products?page={{page}}?category=Smartphone">Smartphone</a></li>
       <li><a href="products?page={{page}}?category=TV">Televisores</a></li>
+      <li><a href="products?sort=desc">Precio descendente</a></li>
+      <li><a href="products?sort=asc">Precio ascendente</a></li>
     </ul>
   </nav>
 

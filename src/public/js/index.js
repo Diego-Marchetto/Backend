@@ -1,12 +1,14 @@
 const addProduct = document.getElementById('addProductCart');
 
+
 addProduct.addEventListener('click', () => {
     const productId = addProduct.dataset.productId;
+    const cartId = addProduct.dataset.cartId;
 
     fetch(`/products/${productId}`)
         .then(response => response.json())
         .then(data => {
-            fetch(`/cart/64b08d684c8079b1866ca967/product/${productId}`, {
+            fetch(`/cart/${cartId}/product/${productId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

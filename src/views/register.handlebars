@@ -1,0 +1,33 @@
+<form class="form" action="/register" method="post">
+  <div>
+    <label>Nombre</label>
+    <input type="text" name="first_name" required />
+
+  </div>
+  <div>
+    <label>Apellido</label>
+    <input type="text" name="last_name" required />
+  </div>
+  <div>
+    <label>Nombre de usuario</label>
+    <input type="text" name="username" required />
+  </div>
+  <div>
+    <label>Email</label>
+    <input type="email" name="email" required />
+  </div>
+  <div>
+    <label>Edad</label>
+    <input type="text" name="age" required />
+  </div>
+  <div>
+    <label>Contraseña</label>
+    <input type="password" name="password" required />
+  </div>
+  <p>
+    Ya esta registrado?
+    <a href="/login">Inicie aquí</a>
+  </p>
+  <button type="submit">Registrarse
+  </button>
+</form>

@@ -32,8 +32,9 @@ rCart.post('/', async (req, res) => {
     }
 })
 rCart.post('/:id/product/:productId', async (req, res) => {
+    let { cid } = req.session.user;
     try {
-        const cart = await managerCart.addToCart(req.params.id, req.params.productId)
+        const cart = await managerCart.addToCart(cid, req.params.productId)
         res.json({ status: 200, data: cart })
     }
     catch (err) {

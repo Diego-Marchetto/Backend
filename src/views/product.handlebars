@@ -9,13 +9,14 @@
             <img>Image: {{product.thumbnail}}</img>
             <p>stock: {{product.stock}}</p>
             <p>ID: {{product._id}}</p>
-            <button class="addProductCart" data-product-id={{product._id}} id="addProductCart">Agregar al
+            <button class="addProductCart" data-product-id={{product._id}}
+            data-cart-id={{cid}} id="addProductCart">Agregar al
                 carrito</button>
         </div>
         {{/if}}
     </p>
     <a href="/products"> Ir a productos</a>
-    <a href="/carts"> Ir a carrito</a>
+    <a href="/cart/{{cid}}"> Ir al carrito</a>
 </div>
 
 <script type="module" src="/js/index.js"></script>
