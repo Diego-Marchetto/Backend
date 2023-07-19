@@ -49,7 +49,7 @@ export function iniPassport() {
           let userCart = await managerCart.createCart();
 
           if (!userCart) {
-            console.log("Error en crear  un carrito para el usuario");
+            console.log("Error en crear un carrito para el usuario");
             return done(null, false);
           }
 
@@ -105,7 +105,7 @@ export function iniPassport() {
           if (!user) {
             let userCart = await managerCart.createCart();
             if (!userCart) {
-              console.log("Error en crear  un carrito para el usuario");
+              console.log("Error en crear un carrito para el usuario");
               return done(null, false);
             }
             const newUser = {

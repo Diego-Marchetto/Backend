@@ -54,7 +54,7 @@ class userServices {
     return result;
   }
   async update(id, firstName, lastName, email) {
-    const userUptaded = await UserModel.updateOne(
+    const userUptaded = await userModel.updateOne(
       { _id: id },
       { firstName, lastName, email }
     );
