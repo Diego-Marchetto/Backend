@@ -3,9 +3,9 @@ import GitHubStrategy from "passport-github2";
 import local from "passport-local";
 import fetch from "node-fetch";
 import userModel from "../dao/mongo/models/user.model.js";
-import { UServices } from "../dao/mongo/manager/userManager.js";
-import { createHash, isValidPassword } from "../hashPassword.js"
-import cartManager from "../dao/mongo/manager/cartManager.js";
+import { UServices } from "../controllers/user.controller.js"
+import { createHash, isValidPassword } from "../utils/hashPassword.js"
+import cartManager from "../controllers/cart.controller.js";
 const LocalStrategy = local.Strategy;
 
 const managerCart = new cartManager();

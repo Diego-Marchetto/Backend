@@ -17,6 +17,7 @@ import cookiesRouter from "./routes/cookies.router.js";
 import MongoStore from "connect-mongo";
 import passport from "passport";
 import { iniPassport } from "./config/passport.config.js";
+import { connectMongo } from "./utils/dBConnection.js";
 
 const app = express();
 
@@ -48,12 +49,7 @@ socketServer.on("connection", (socket) =>{
     console.log("Un cliente se ha conectado.")
 });
 
-const connection = async () =>{
-    await mongoose.connect("mongodb+srv://zhelmomash:malmomento@cluster0.ezydc8x.mongodb.net/");
-    console.log("Conectado exitosamente a la base de datos.")
-}
-
-connection();
+connectMongo();
 
 iniPassport();
 app.use(passport.initialize());

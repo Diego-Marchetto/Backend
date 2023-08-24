@@ -1,5 +1,5 @@
-import userModel from "../models/user.model.js";
-import { isValidPassword } from "../../../hashPassword.js";
+import userModel from "../dao/mongo/models/user.model.js";
+import { isValidPassword } from "../utils/hashPassword.js";
 
 class userServices {
   async getAll() {
