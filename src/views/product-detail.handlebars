@@ -1,0 +1,28 @@
+<div class="products-container">
+  <h1>Detalle del producto</h1>
+
+  {{#if plainProduct}}
+
+    <div id={{plainProduct._id}} class="card">
+
+      <div>Titulo: {{plainProduct.title}} </div>
+      <div>Precio: {{plainProduct.price}} </div>
+      <div>Imagen: {{plainProduct.thumbnail}}</div>
+      <div>Descripcion: {{plainProduct.description}}</div>
+      <div>Codigo: {{plainProduct.code}} </div>
+      <div>Stock: {{plainProduct.stock}}</div>
+      <div>Categoria: {{plainProduct.category}}</div>
+
+    </div>
+
+    <button id="btn-decrease" class="btn">-</button>
+    <span id="product-count" class="product-count">0</span>
+    <button id="btn-increase" class="btn">+</button>
+    <br />
+    <a><button type="submit" class="btn btn-primary">Agregar al carrito</button></a>
+
+  {{else}}
+    <p>El producto no existe o no se encontró.</p>
+  {{/if}}
+  <script src="../utils/addProductToCart.js"></script>
+</div>

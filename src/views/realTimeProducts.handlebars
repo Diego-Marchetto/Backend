@@ -1,0 +1,86 @@
+<h1>{{title}}</h1>
+<div>
+  <div class="products-container-realtime">
+
+    <table id="dinamic-list-products" class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Id</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">URL Imagen</th>
+          <th scope="col">Codigo</th>
+          <th scope="col">Stock</th>
+          <th scope="col">Categoria</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each products}}
+          <tr>
+            <th scope="row">*</th>
+            <td>{{this._id}}</td>
+            <td>{{this.title}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.thumbnail}}</td>
+            <td>{{this.code}}</td>
+            <td>{{this.stock}}</td>
+            <td>{{this.category}}</td>
+          </tr>
+
+        {{/each}}
+      </tbody>
+    </table>
+
+  </div>
+  <form id="form-products">
+    <h1>Añadir Producto</h1>
+    <input
+      id="form-title"
+      placeholder="Titulo "
+      class="input-style"
+      type="text"
+    />
+    <input
+      id="form-description"
+      placeholder="Descripcion"
+      class="input-style"
+      type="text"
+    />
+    <input
+      id="form-price"
+      placeholder="Precio"
+      class="input-style"
+      type="number"
+    />
+    <input
+      id="form-code"
+      placeholder="Codigo"
+      class="input-style"
+      type="text"
+    />
+    <input
+      id="form-stock"
+      placeholder="Stock"
+      class="input-style"
+      type="number"
+    />
+    <input
+      id="form-thumbnail"
+      placeholder="URL Imagen"
+      class="input-style"
+      type="text"
+    />
+    <input
+      id="form-category"
+      placeholder="Categoria"
+      class="input-style"
+      type="text"
+    />
+    <input type="submit" value="Crear producto" class="form-button" />
+  </form>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/test-socket.js"></script>
